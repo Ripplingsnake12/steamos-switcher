@@ -59,7 +59,8 @@ install_packages() {
     echo -e "${C_GREEN}Using AUR helper: ${AUR_HELPER}${C_NC}"
     
     # Install packages in parallel
-    sudo pacman -Syudd --needed "${PACKAGES_OFFICIAL[@]}" --noconfirm &
+    sudo pacman -Sdd --needed "${PACKAGES_OFFICIAL[@]}" --noconfirm &
+    sleep 10
     $AUR_HELPER -Sdd --needed "${PACKAGES_AUR[@]}" --noconfirm &
     wait
 }
